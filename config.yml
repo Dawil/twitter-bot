@@ -1,0 +1,3 @@
+development:
+  TWITTER_CONSUMER_KEY: foo
+  TWITTER_CONSUMER_SECRET:
