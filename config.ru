@@ -3,5 +3,5 @@ require 'bundler'
 
 Bundler.require
 
-require './bot.rb'
+require './app'
 run TwitterBot
