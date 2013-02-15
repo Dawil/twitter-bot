@@ -1,6 +1,6 @@
 class TwitterBot < Sinatra::Base
 	register Sinatra::ConfigFile
-	config_file 'config.yml'
+	config_file '../config.yml'
 	DB = Sequel.sqlite
 
 	TweetStream.configure do |config|
@@ -18,8 +18,6 @@ class TwitterBot < Sinatra::Base
 	Thread.start do
 		TweetStream::Client.new.sample do |status|
 			puts status.text
-			puts status.inspect
-			TweetStream.stop
 		end
 	end
 end
