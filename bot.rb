@@ -10,11 +10,15 @@ class TwitterBot < Sinatra::Base
 		config.auth_method        = :oauth
 	end
 
-	TweetStream::Client.new.userstream do |status|
-		puts status.text
+	get '/hi' do
+		Rack::Utils.escape_html "hello world<script>alert('lol')</script>"
 	end
 
-	get '/hi' do
-		settings.TWITTER_CONSUMER_KEY
+	Thread.start do
+		TweetStream::Client.new.sample do |status|
+			puts status.text
+			puts status.inspect
+			TweetStream.stop
+		end
 	end
 end
