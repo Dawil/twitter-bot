@@ -1,6 +1,7 @@
 class TwitterBot < Sinatra::Base
 	register Sinatra::ConfigFile
 	config_file 'config.yml'
+	DB = Sequel.sqlite
 
 	TweetStream.configure do |config|
 		config.consumer_key       = settings.TWITTER_CONSUMER_KEY
