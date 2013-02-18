@@ -68,3 +68,4 @@ DEPENDENCIES
   sinatra-contrib
   sqlite3
   tweetstream
+  twitter
